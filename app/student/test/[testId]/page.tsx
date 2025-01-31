@@ -13,7 +13,6 @@ import {
   AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogAction,
 } from '@/components/ui/alert-dialog';
 import { Progress } from '@/components/ui/progress';
 import { use } from 'react';
@@ -23,7 +22,7 @@ interface TestPageProps {
 }
 
 // Mock test data - in a real app, this would be an API call
-const getTestQuestions = (testId: string) => {
+const getTestQuestions = () => {
   return [
     {
       id: 1,
@@ -49,7 +48,7 @@ export default function TestPage({ params }: TestPageProps) {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
   const [showSubmitDialog, setShowSubmitDialog] = useState(false);
-  const [questions] = useState(() => getTestQuestions(testId));
+  const [questions] = useState(() => getTestQuestions());
 
   const handleSubmit = () => {
     // Calculate score
