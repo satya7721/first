@@ -1,8 +1,14 @@
-"use client";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { DollarSign, CreditCard, AlertCircle, CheckCircle } from "lucide-react";
+'use client';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { DollarSign, CreditCard, AlertCircle, CheckCircle } from 'lucide-react';
 import {
   Table,
   TableBody,
@@ -10,49 +16,49 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
 export default function StudentFees() {
   const feeSummary = {
     totalFees: 12000,
     paidAmount: 8000,
     pendingAmount: 4000,
-    nextDueDate: "2025-02-15",
+    nextDueDate: '2025-02-15',
   };
 
   const recentPayments = [
     {
       id: 1,
-      date: "2025-01-15",
+      date: '2025-01-15',
       amount: 2000,
-      type: "Tuition Fee",
-      status: "paid",
-      transactionId: "TXN123456",
+      type: 'Tuition Fee',
+      status: 'paid',
+      transactionId: 'TXN123456',
     },
     {
       id: 2,
-      date: "2024-12-15",
+      date: '2024-12-15',
       amount: 2000,
-      type: "Tuition Fee",
-      status: "paid",
-      transactionId: "TXN123455",
+      type: 'Tuition Fee',
+      status: 'paid',
+      transactionId: 'TXN123455',
     },
   ];
 
   const upcomingPayments = [
     {
       id: 1,
-      dueDate: "2025-02-15",
+      dueDate: '2025-02-15',
       amount: 2000,
-      type: "Tuition Fee",
-      status: "pending",
+      type: 'Tuition Fee',
+      status: 'pending',
     },
     {
       id: 2,
-      dueDate: "2025-03-15",
+      dueDate: '2025-03-15',
       amount: 2000,
-      type: "Tuition Fee",
-      status: "pending",
+      type: 'Tuition Fee',
+      status: 'pending',
     },
   ];
 
@@ -83,10 +89,14 @@ export default function StudentFees() {
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm font-medium">Pending Amount</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Pending Amount
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-red-500">${feeSummary.pendingAmount}</div>
+            <div className="text-2xl font-bold text-red-500">
+              ${feeSummary.pendingAmount}
+            </div>
             <p className="text-xs text-muted-foreground">To be paid</p>
           </CardContent>
         </Card>
@@ -97,7 +107,9 @@ export default function StudentFees() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{feeSummary.nextDueDate}</div>
-            <p className="text-xs text-muted-foreground">For upcoming payment</p>
+            <p className="text-xs text-muted-foreground">
+              For upcoming payment
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -151,7 +163,9 @@ export default function StudentFees() {
               {recentPayments.map((payment) => (
                 <TableRow key={payment.id}>
                   <TableCell>{payment.date}</TableCell>
-                  <TableCell className="font-mono">{payment.transactionId}</TableCell>
+                  <TableCell className="font-mono">
+                    {payment.transactionId}
+                  </TableCell>
                   <TableCell>{payment.type}</TableCell>
                   <TableCell>${payment.amount}</TableCell>
                   <TableCell>

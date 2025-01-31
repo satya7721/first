@@ -2,17 +2,42 @@
 
 import React from 'react';
 import DashboardLayout from '@/components/ui/dashboard';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, Plus, MoreVertical } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Search, Plus, MoreVertical } from 'lucide-react';
 
 export default function CoursesPage() {
   const courses = [
-    { id: 1, name: "Mathematics", teacher: "Dr. Smith", students: 35, status: "Active" },
-    { id: 2, name: "Physics", teacher: "Mr. Johnson", students: 28, status: "Active" },
-    { id: 3, name: "Chemistry", teacher: "Mrs. Davis", students: 30, status: "Active" },
+    {
+      id: 1,
+      name: 'Mathematics',
+      teacher: 'Dr. Smith',
+      students: 35,
+      status: 'Active',
+    },
+    {
+      id: 2,
+      name: 'Physics',
+      teacher: 'Mr. Johnson',
+      students: 28,
+      status: 'Active',
+    },
+    {
+      id: 3,
+      name: 'Chemistry',
+      teacher: 'Mrs. Davis',
+      students: 30,
+      status: 'Active',
+    },
   ];
 
   return (
@@ -32,7 +57,7 @@ export default function CoursesPage() {
             </div>
             <Button variant="outline">Filters</Button>
           </div>
-          
+
           <Table>
             <TableHeader>
               <TableRow>
