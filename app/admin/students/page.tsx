@@ -2,17 +2,42 @@
 
 import React from 'react';
 import DashboardLayout from '@/components/ui/dashboard';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, Plus, MoreVertical } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Search, Plus, MoreVertical } from 'lucide-react';
 
 export default function StudentsPage() {
   const students = [
-    { id: 1, name: "John Doe", grade: "10th", contact: "+1234567890", status: "Active" },
-    { id: 2, name: "Jane Smith", grade: "11th", contact: "+1234567891", status: "Active" },
-    { id: 3, name: "Bob Johnson", grade: "9th", contact: "+1234567892", status: "Inactive" },
+    {
+      id: 1,
+      name: 'John Doe',
+      grade: '10th',
+      contact: '+1234567890',
+      status: 'Active',
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      grade: '11th',
+      contact: '+1234567891',
+      status: 'Active',
+    },
+    {
+      id: 3,
+      name: 'Bob Johnson',
+      grade: '9th',
+      contact: '+1234567892',
+      status: 'Inactive',
+    },
   ];
 
   return (
@@ -32,7 +57,7 @@ export default function StudentsPage() {
             </div>
             <Button variant="outline">Filters</Button>
           </div>
-          
+
           <Table>
             <TableHeader>
               <TableRow>

@@ -2,35 +2,42 @@
 
 import React from 'react';
 import DashboardLayout from '@/components/ui/dashboard';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, Plus, MoreVertical, Eye } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Search, Plus, MoreVertical, Eye } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export default function ExamsPage() {
   const exams = [
-    { 
-      id: 1, 
-      name: "Mathematics Mid-term", 
-      date: "2025-02-15", 
-      duration: "2 hours",
-      status: "Upcoming"
+    {
+      id: 1,
+      name: 'Mathematics Mid-term',
+      date: '2025-02-15',
+      duration: '2 hours',
+      status: 'Upcoming',
     },
-    { 
-      id: 2, 
-      name: "Physics Quiz", 
-      date: "2025-02-10", 
-      duration: "1 hour",
-      status: "Upcoming"
+    {
+      id: 2,
+      name: 'Physics Quiz',
+      date: '2025-02-10',
+      duration: '1 hour',
+      status: 'Upcoming',
     },
-    { 
-      id: 3, 
-      name: "Chemistry Final", 
-      date: "2025-01-28", 
-      duration: "3 hours",
-      status: "Completed"
+    {
+      id: 3,
+      name: 'Chemistry Final',
+      date: '2025-01-28',
+      duration: '3 hours',
+      status: 'Completed',
     },
   ];
 
@@ -51,7 +58,7 @@ export default function ExamsPage() {
             </div>
             <Button variant="outline">Filters</Button>
           </div>
-          
+
           <Table>
             <TableHeader>
               <TableRow>
@@ -69,7 +76,11 @@ export default function ExamsPage() {
                   <TableCell>{exam.date}</TableCell>
                   <TableCell>{exam.duration}</TableCell>
                   <TableCell>
-                    <Badge variant={exam.status === 'Upcoming' ? 'default' : 'secondary'}>
+                    <Badge
+                      variant={
+                        exam.status === 'Upcoming' ? 'default' : 'secondary'
+                      }
+                    >
                       {exam.status}
                     </Badge>
                   </TableCell>

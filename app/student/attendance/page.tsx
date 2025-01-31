@@ -1,8 +1,14 @@
-"use client";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { Calendar, Clock, CheckCircle, XCircle } from "lucide-react";
+'use client';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+import { Calendar, Clock, CheckCircle, XCircle } from 'lucide-react';
 import {
   Table,
   TableBody,
@@ -10,7 +16,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
 export default function StudentAttendance() {
   const attendanceStats = {
@@ -23,34 +29,34 @@ export default function StudentAttendance() {
   const recentAttendance = [
     {
       id: 1,
-      date: "2025-02-01",
-      subject: "Mathematics",
-      status: "present",
-      time: "10:00 AM",
-      duration: "1 hour",
+      date: '2025-02-01',
+      subject: 'Mathematics',
+      status: 'present',
+      time: '10:00 AM',
+      duration: '1 hour',
     },
     {
       id: 2,
-      date: "2025-02-01",
-      subject: "Physics",
-      status: "present",
-      time: "11:30 AM",
-      duration: "1 hour",
+      date: '2025-02-01',
+      subject: 'Physics',
+      status: 'present',
+      time: '11:30 AM',
+      duration: '1 hour',
     },
     {
       id: 3,
-      date: "2025-01-31",
-      subject: "Chemistry",
-      status: "absent",
-      time: "09:00 AM",
-      duration: "1 hour",
+      date: '2025-01-31',
+      subject: 'Chemistry',
+      status: 'absent',
+      time: '09:00 AM',
+      duration: '1 hour',
     },
   ];
 
   const subjectWiseAttendance = [
-    { subject: "Mathematics", attended: 34, total: 40, percentage: 85 },
-    { subject: "Physics", attended: 32, total: 35, percentage: 91 },
-    { subject: "Chemistry", attended: 36, total: 45, percentage: 80 },
+    { subject: 'Mathematics', attended: 34, total: 40, percentage: 85 },
+    { subject: 'Physics', attended: 32, total: 35, percentage: 91 },
+    { subject: 'Chemistry', attended: 36, total: 45, percentage: 80 },
   ];
 
   return (
@@ -60,7 +66,9 @@ export default function StudentAttendance() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm font-medium">Overall Attendance</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Overall Attendance
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{attendanceStats.overall}%</div>
@@ -73,7 +81,9 @@ export default function StudentAttendance() {
             <CardTitle className="text-sm font-medium">This Month</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{attendanceStats.thisMonth}%</div>
+            <div className="text-2xl font-bold">
+              {attendanceStats.thisMonth}%
+            </div>
             <Progress value={attendanceStats.thisMonth} className="h-2 mt-2" />
           </CardContent>
         </Card>
@@ -83,17 +93,23 @@ export default function StudentAttendance() {
             <CardTitle className="text-sm font-medium">Total Classes</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{attendanceStats.totalClasses}</div>
+            <div className="text-2xl font-bold">
+              {attendanceStats.totalClasses}
+            </div>
             <p className="text-xs text-muted-foreground">Academic year</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm font-medium">Classes Attended</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Classes Attended
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{attendanceStats.attendedClasses}</div>
+            <div className="text-2xl font-bold">
+              {attendanceStats.attendedClasses}
+            </div>
             <p className="text-xs text-muted-foreground">Academic year</p>
           </CardContent>
         </Card>
@@ -143,7 +159,7 @@ export default function StudentAttendance() {
                   <TableCell>{record.time}</TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
-                      {record.status === "present" ? (
+                      {record.status === 'present' ? (
                         <CheckCircle className="h-4 w-4 text-green-500" />
                       ) : (
                         <XCircle className="h-4 w-4 text-red-500" />
