@@ -51,28 +51,6 @@ export default function TestPage({ params }: TestPageProps) {
   const [showSubmitDialog, setShowSubmitDialog] = useState(false);
   const [questions] = useState(() => getTestQuestions(testId));
 
-  // Timer effect
-  useEffect(() => {
-    if (timeLeft > 0) {
-      const timer = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
-      }, 1000);
-      return () => clearInterval(timer);
-    } else {
-      handleSubmit();
-    }
-  }, [timeLeft]);
-
-  const formatTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-  };
-
-  const handleAnswer = (answer: string) => {
-    setAnswers({ ...answers, [currentQuestion]: answer });
-  };
-
   const handleSubmit = () => {
     // Calculate score
     let score = 0;
@@ -90,6 +68,28 @@ export default function TestPage({ params }: TestPageProps) {
     localStorage.setItem('testResults', JSON.stringify(testResults));
 
     router.push('/student/exams');
+  };
+
+  // Timer effect
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setInterval(() => {
+        setTimeLeft((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    } else {
+      handleSubmit();
+    }
+  }, [timeLeft, handleSubmit]);
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
+  const handleAnswer = (answer: string) => {
+    setAnswers({ ...answers, [currentQuestion]: answer });
   };
 
   return (
