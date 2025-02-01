@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import DashboardLayout from '@/components/ui/dashboard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -15,9 +15,18 @@ import {
 } from '@/components/ui/table';
 import { Search, Plus, MoreVertical, Eye } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function ExamsPage() {
-  const exams = [
+  const [exams, setExams] = useState([
     {
       id: 1,
       name: 'Mathematics Mid-term',
@@ -39,16 +48,70 @@ export default function ExamsPage() {
       duration: '3 hours',
       status: 'Completed',
     },
-  ];
+  ]);
+
+  const [newExam, setNewExam] = useState({
+    name: '',
+    date: '',
+    duration: '',
+    mcqs: '',
+  });
+
+  const addExam = () => {
+    setExams([
+      ...exams,
+      { id: exams.length + 1, ...newExam, status: 'Upcoming' },
+    ]);
+    setNewExam({ name: '', date: '', duration: '', mcqs: '' });
+  };
 
   return (
     <DashboardLayout role="admin">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Exams Management</CardTitle>
-          <Button>
-            <Plus className="w-4 h-4 mr-2" /> Create Exam
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="w-4 h-4 mr-2" /> Create Exam
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Create New Exam</DialogTitle>
+              </DialogHeader>
+              <Label>Exam Name</Label>
+              <Input
+                value={newExam.name}
+                onChange={(e) =>
+                  setNewExam({ ...newExam, name: e.target.value })
+                }
+              />
+              <Label>Date</Label>
+              <Input
+                type="date"
+                value={newExam.date}
+                onChange={(e) =>
+                  setNewExam({ ...newExam, date: e.target.value })
+                }
+              />
+              <Label>Duration</Label>
+              <Input
+                value={newExam.duration}
+                onChange={(e) =>
+                  setNewExam({ ...newExam, duration: e.target.value })
+                }
+              />
+              <Label>MCQs (JSON format)</Label>
+              <Textarea
+                value={newExam.mcqs}
+                onChange={(e) =>
+                  setNewExam({ ...newExam, mcqs: e.target.value })
+                }
+              />
+              <Button onClick={addExam}>Add Exam</Button>
+            </DialogContent>
+          </Dialog>
         </CardHeader>
         <CardContent>
           <div className="flex gap-2 mb-4">
